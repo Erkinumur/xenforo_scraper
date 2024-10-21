@@ -30,7 +30,7 @@ class ForumMessageXPath:
 
 
 class ForumUserXPath:
-    LOGIN = '//span[@class="username "]/text()'
+    LOGIN = '//span[@class="username "]//text()'
     USER_ID = '//span[@class="username "]/@data-user-id'
     AVATAR = '//span[@class="memberHeader-avatar"]//img[contains(@class, "avatar")]/@src'
     REGISTRATION_DATE = '//dt[text()="Joined"]/..//time/@datetime'
