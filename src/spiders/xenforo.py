@@ -30,7 +30,7 @@ class XenforoSpider(scrapy.Spider):
         return spider
 
     def parse(self, response: Response, **kwargs):
-        self.log("Settings: " + str(self.settings.attributes))
+
         arg_links = getattr(self, 'links', None)
         if arg_links:
             forum_links = arg_links.split(',')
@@ -103,7 +103,6 @@ class XenforoSpider(scrapy.Spider):
                 response.xpath(ForumTopicXPath.CREATOR_URL).get()
             )
         )
-        self.log(f"Added user: {item['creator_id']} | Topic: {item['topic_id']} | {response.xpath(ForumTopicXPath.CREATOR_URL).get()}")
 
         yield item
 
@@ -133,12 +132,6 @@ class XenforoSpider(scrapy.Spider):
                     article.xpath(ForumMessageXPath.CREATOR_URL).get()
                 )
             )
-            self.log(f"Added user: {item['user_id']} | Message: {item['message_id']} |"
-                     f" {article.xpath(ForumMessageXPath.CREATOR_URL).get()} | "
-                     f"{                urljoin(
-                    self.settings['XENFORO_BASE_URL'],
-                    article.xpath(ForumMessageXPath.CREATOR_URL).get()
-                )}")
 
             yield item
 
