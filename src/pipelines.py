@@ -48,7 +48,7 @@ class ForumPipeline:
                 adapter["url"] in spider.settings["FORUM_IGNORE_URLS"],
                 # "/categories/" in adapter["url"]
         )):
-            raise DropItem(f"Ignored: {adapter["url"]}")
+            raise DropItem(f"Ignored: {adapter['url']}")
 
         if any((
             not adapter["forum_id"],
