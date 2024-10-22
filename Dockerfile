@@ -28,5 +28,7 @@ COPY . /app
 # Указываем рабочую директорию для приложения
 WORKDIR /app
 
+RUN if [ ! -d "parsed_data" ]; then mkdir parsed_data; fi
+
 # Команда по умолчанию для запуска контейнера
 CMD ["scrapy", "crawl", "xenforo"]
