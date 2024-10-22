@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xenforo_scraper
+    env_file:
+      - ./src/.env
+    volumes:
+      - .:/app
+    command: ["scrapy", "crawl", "xenforo", "-a", "links=${FORUM_URL}"]
