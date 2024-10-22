@@ -21,6 +21,7 @@ class ForumPipeline:
         self.forum_file.close()
         self.topic_file.close()
         self.message_file.close()
+        self.users_file.close()
 
     def process_item(self, item, spider):
         adapter = ItemAdapter(item)
