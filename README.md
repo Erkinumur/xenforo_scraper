@@ -72,6 +72,6 @@ FORUM_URL={forum_url} docker compose up
 Replace {forum_url} with the actual URL of the forum you want to scrape.
 
 ### 3. Scraped Data
-The scraped data is saved in `.jsonl` (JSON Lines) format in the folder specified by `SCRAPY_PARSED_DATA_DIR_NAME`, which defaults to parsed_data.
+The scraped data is saved in `.jsonl` (JSON Lines) format in the folder parsed_data.
 
 Each file will contain the parsed information such as forum topics, posts, and user data.
