@@ -11,7 +11,11 @@ from itemloaders.processors import TakeFirst, MapCompose, Compose
 
 def clean_id(value):
     data = value.split('-')
-    id_ =  int(data[-1])
+
+    try:
+        id_ =  int(data[-1])
+    except ValueError:
+        return None
 
     if data[0] == 'category':
         return 9_000_000 + id_
